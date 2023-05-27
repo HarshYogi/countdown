@@ -1,0 +1,26 @@
+/* CSS styles for the birthday countdown */
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 5rem;
+  }
+  
+  #countdown {
+    text-align: center;
+    font-size: 50px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+  }
+  
+  #interactive-section {
+    text-align: center;
+    font-size: 30px;
+  }
+
+  button{
+    font-size: 30px;
+  }
+  

@@ -1,99 +1,91 @@
 // Memory Game JavaScript code
 document.addEventListener("DOMContentLoaded", () => {
-    const images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg" ];
-    let flippedCards = [];
-    let matchedCards = [];
+  const images = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg", "1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg", "8.jpg", "9.jpg", "10.jpg"];
+  let flippedCards = [];
+  let matchedCards = [];
 
-    // Shuffle the images
-    shuffle(images);
+  // Shuffle the images
+  shuffle(images);
 
-    // Display the cards
-    const gameBoard = document.getElementById("game-board");
-    images.forEach((image) => {
-        const card = document.createElement("div");
-        card.classList.add("card");
+  // Display the cards
+  const interactiveSection = document.getElementById("interactive-section");
+  images.forEach((image) => {
+    const cardContainer = document.createElement("div");
+    cardContainer.classList.add("card");
 
-        const inner = document.createElement("div");
-        inner.classList.add("inner");
+    const front = document.createElement("img");
+    front.src = image;
+    front.alt = "Card Front";
+    front.classList.add("front");
 
-        const front = document.createElement("div");
-        front.classList.add("front");
-        const frontImg = document.createElement("img");
-        frontImg.src = image;
-        frontImg.alt = "Card Front";
-        front.appendChild(frontImg);
+    const back = document.createElement("img");
+    back.src = "card-back.jpg";
+    back.alt = "Card Back";
+    back.classList.add("back");
 
-        const back = document.createElement("div");
-        back.classList.add("back");
-        const backImg = document.createElement("img");
-        backImg.src = "card-back.jpg";
-        backImg.alt = "Card Back";
-        back.appendChild(backImg);
+    cardContainer.appendChild(back);
+    cardContainer.appendChild(front);
+    interactiveSection.appendChild(cardContainer);
 
-        inner.appendChild(front);
-        inner.appendChild(back);
-        card.appendChild(inner);
-        gameBoard.appendChild(card);
-
-        card.addEventListener("click", () => flipCard(card));
+    cardContainer.addEventListener("click", () => {
+      flipCard(cardContainer, front);
     });
-});
+  });
 
-// Function to shuffle the images
-function shuffle(array) {
+  // Function to shuffle the images
+  function shuffle(array) {
     for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
     }
-}
-
-// Function to flip the card
-function flipCard(card) {
-    if (card.classList.contains("flipped")) {
-        return;
-    }
-
-    card.classList.add("flipped");
-    flippedCards.push(card);
-
-    if (flippedCards.length === 2) {
-        setTimeout(checkMatch, 500);
-    }
-}
-
-// Function to check if the flipped cards match
-function checkMatch() {
-    const card1 = flippedCards[0];
-    const card2 = flippedCards[1];
-  
-    if (card1.lastElementChild.src === card2.lastElementChild.src) {
-      card1.removeEventListener("click", handleCardClick);
-      card2.removeEventListener("click", handleCardClick);
-      matchedCards.push(card1, card2);
-      checkGameCompletion();
-    } else {
-      setTimeout(() => {
-        card1.classList.remove("flipped");
-        card2.classList.remove("flipped");
-        card1.addEventListener("click", handleCardClick);
-        card2.addEventListener("click", handleCardClick);
-        card1.style.pointerEvents = "auto";
-        card2.style.pointerEvents = "auto";
-        card1.classList.add("unmatched");
-        card2.classList.add("unmatched");
-        setTimeout(() => {
-          card1.classList.remove("unmatched");
-          card2.classList.remove("unmatched");
-        }, 1000);
-      }, 1000);
-    }
-  
-    flippedCards = [];
   }
 
-// Function to check if all cards are matched
-function checkGameCompletion() {
-    if (matchedCards.length === 12) {
-        alert("Congratulations! You've completed the game!");
+  // Function to flip the card
+  function flipCard(cardContainer, front) {
+    if (cardContainer.classList.contains("flipped")) {
+      return;
     }
-}
+
+    cardContainer.classList.add("flipped");
+    flippedCards.push({ cardContainer, front });
+
+    if (flippedCards.length === 2) {
+      disableAllCards();
+      setTimeout(checkMatch, 1000);
+    }
+  }
+
+  // Function to disable all cards temporarily
+  function disableAllCards() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.style.pointerEvents = "none";
+    });
+  }
+
+  // Function to enable all cards
+  function enableAllCards() {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.style.pointerEvents = "auto";
+    });
+  }
+
+  // Function to check if the flipped cards match
+  function checkMatch() {
+    const [card1, card2] = flippedCards;
+
+    if (card1.front.src === card2.front.src) {
+      matchedCards.push(card1.cardContainer, card2.cardContainer);
+      if (matchedCards.length === images.length * 2) {
+        alert("Congratulations! You've completed the game!");
+      }
+    } else {
+      card1.cardContainer.classList.remove("flipped");
+      card2.cardContainer.classList.remove("flipped");
+    }
+
+    flippedCards = [];
+    enableAllCards();
+  }
+});

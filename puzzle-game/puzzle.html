@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="./puzzle.css">
+</head>
+<body>
+  <h1>Puzzle Game</h1>
+  <div id="container">	
+    <a href="#" class="button start">Start</a>
+    <div class="box">	
+      <div class="me full"></div>
+    </div>
+    <div class="pre_img">	
+      <li data-bid="0" class="zero"><img src="../images/2.jpg"></li>
+      <li data-bid="1"><img src="../images/3.jpg"></li>
+      <li data-bid="2"><img src="../images/5.jpg"></li>	
+      <!-- <li data-bid="3" id="upfile1"><img src="../images/2.png" /></li> -->
+      <input type="file" name="image" id="file1" style="display: none">
+    </div>
+    <div alignitems="center"><a href="#" class="button reset" alignitems="center">Reset</a></div>
+  </div>
+  
+  <div class="cover" >
+    <div class="score">
+      <p id="scr_head"> &#9875 Puzzel Solved &#9875</p>
+      <p id="scr_time"> Time : <span id="min">00</span> Min <span id="sec">00</span> Sec</p>
+      <p id="scr_moves"> Moves : <span id="moves"></span></p>
+      <p class="i">developed by mayur birle</p>
+      <div class="button OK">OK</div>
+    </div>
+  </div>
+  <script src="./puzzle.js"></script>  
+</body>
+</html>

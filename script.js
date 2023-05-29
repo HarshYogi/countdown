@@ -46,7 +46,7 @@ function displayInteractiveElements(days) {
   } else if (days === 2) {
     document.getElementById("interactive-section").innerHTML = "Day 2: Trivia question - What is your friend's favorite book?";
   } else if (days > 5) {
-    document.getElementById("interactive-section").innerHTML = "Today's Game : Guess the Picture!";
+    document.getElementById("interactive-section").innerHTML = "Today's Game : Solve the puzzle!";
     document.getElementById("interactive-section").innerHTML += "<br><br><button onclick='memoryGame()'>Start Game</button>";
   }
 }
@@ -67,7 +67,7 @@ function memoryGame() {
   clearInterval(countdownInterval);
 
   // Open the game in a new window or tab
-  const newWindow = window.open("memory-game.html", "_blank");
+  const newWindow = window.open("../puzzle-game/puzzle.html", "_blank");
 }
 
 // Start the countdown

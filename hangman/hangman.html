@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hangman Game</title>
+  <link rel="stylesheet" href="hangman.css">
+</head>
+<body>
+  <h2>Guess the Word</h2>
+  <p>These are the nicknames we give to each other.</p>
+  <p class="hint"><span>Hint : </span>These are the nicknames we give to each other. and you have only 3 wrong guesses.</p>
+  <input type="text" id="guessInput" placeholder="Place the letter">
+  <button class='glowing-btn' onclick="guessLetter()"><span class='glowing-txt'>G<span class='faulty-letter'>U</span>ESS</span></button>
+  <p id="wordDisplay"></p>
+  <p id="message"></p>
+
+  <script src="hangman.js"></script>
+</body>
+</html>

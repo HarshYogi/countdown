@@ -28,41 +28,21 @@ function countdown() {
 
 // Function to display interactive elements based on the remaining days
 function displayInteractiveElements(days) {
-  // Clear the interactive section
   document.getElementById("interactive-section").innerHTML = "";
-
-  // Display different interactive elements based on the remaining days
-  if (days == 1) {
-    document.getElementById("interactive-section").innerHTML = "No interactive element for today!";
-  } else if (days === 5) {
-    document.getElementById("interactive-section").innerHTML = "Day 5: Trivia question - What is your friend's favorite movie?";
-  } else if (days === 4) {
-    document.getElementById("interactive-section").innerHTML = "Day 4: Quiz - Test your knowledge about your friend!";
-  } else if (days === 3) {
-    document.getElementById("interactive-section").innerHTML = "Day 3: Guess the Picture - Identify the hidden object!";
-    document.getElementById("interactive-section").innerHTML += "<br><br><img src='hidden-object.jpg' alt='Hidden Object' id='hiddenObject'>";
-    document.getElementById("interactive-section").innerHTML += "<br><br>Answer: <input type='text' id='answerInput'>";
-    document.getElementById("interactive-section").innerHTML += "<button onclick='checkAnswer()'>Check</button>";
-  } else if (days === 2) {
-    document.getElementById("interactive-section").innerHTML = "Day 2: Trivia question - What is your friend's favorite book?";
-  } else if (days > 5) {
-    document.getElementById("interactive-section").innerHTML = "Today's Game : Solve the puzzle!";
-    document.getElementById("interactive-section").innerHTML += "<br><br><button onclick='memoryGame()'>Start Game</button>";
-  }
+    document.getElementById("interactive-section").innerHTML = "Solve the puzzle!";
+    document.getElementById("interactive-section").innerHTML += "<br><button onclick='puzzleGame()'>Start Game</button>";
+    document.getElementById("interactive-section2").innerHTML = "Guess the picture!";
+    document.getElementById("interactive-section2").innerHTML += "<br><button onclick='memoryGame()'>Start Game</button>";
 }
-
-function checkAnswer() {
-  const userAnswer = document.getElementById("answerInput").value.toLowerCase();
-  const correctAnswer = "sunglasses";
-
-  if (userAnswer === correctAnswer) {
-    document.getElementById("interactive-section").innerHTML = "Congratulations! You guessed it right!";
-  } else {
-    document.getElementById("interactive-section").innerHTML = "Oops, that's incorrect. Try again!";
-  }
-}
-
 function memoryGame() {
+  // Stop the countdown
+  clearInterval(countdownInterval);
+
+  // Open the game in a new window or tab
+  const newWindow = window.open("../memory-game/memory-game.html", "_blank");
+}
+
+function puzzleGame() {
   // Stop the countdown
   clearInterval(countdownInterval);
 

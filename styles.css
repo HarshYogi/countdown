@@ -18,15 +18,15 @@ body {
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-family: canada-type-gibson, sans-serif;
   font-weight: 300;
   font-size: 1.25rem;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
   background-color: #eff8e2;
-  margin-top: 35px;
+  margin-top: 70px;
 }
 
 .content {
@@ -48,6 +48,7 @@ body {
   color: var(--color-primary);
   animation: shadows 1.2s ease-in infinite, move 1.2s ease-in infinite;
   letter-spacing: 0.4rem;
+  font-size: 100px;
 }
 
 @keyframes shadows {
@@ -125,8 +126,14 @@ body {
   
   #interactive-section {
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
     margin-top: 10px;
+    color: #d86a6a;
+  }
+  #interactive-section2 {
+    text-align: center;
+    font-size: 50px;
+    margin-top: 60px;
     color: #d86a6a;
   }
 
@@ -147,5 +154,6 @@ body {
     user-select: none;
     -webkit-user-select: none;
     touch-action: manipulation;
+    margin-top: 30px;
   }
   

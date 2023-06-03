@@ -35,30 +35,28 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section2").innerHTML += "<br><button onclick='memoryGame()'>Start Game</button>";
     document.getElementById("interactive-section3").innerHTML = "Hangman Game!";
     document.getElementById("interactive-section3").innerHTML += "<br><button onclick='hangmanGame()'>Start Game</button>";
+    document.getElementById("interactive-section3").innerHTML = "Guess the Movie!";
+    document.getElementById("interactive-section3").innerHTML += "<br><button onclick='movieGame()'>Start Game</button>";
 }
 
 function memoryGame() {
-  // Stop the countdown
   clearInterval(countdownInterval);
-
-  // Open the game in a new window or tab
   const newWindow = window.open("../memory-game/memory-game.html", "_blank");
 }
 
 function hangmanGame() {
-  // Stop the countdown
   clearInterval(countdownInterval);
-
-  // Open the game in a new window or tab
   const newWindow = window.open("../hangman/hangman.html", "_blank");
 }
 
 function puzzleGame() {
-  // Stop the countdown
   clearInterval(countdownInterval);
-
-  // Open the game in a new window or tab
   const newWindow = window.open("../puzzle-game/puzzle.html", "_blank");
+}
+
+function movieGame() {
+  clearInterval(countdownInterval);
+  const newWindow = window.open("../guess-movie/guess-number.html", "_blank");
 }
 
 // Start the countdown

@@ -35,8 +35,8 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section2").innerHTML += "<br><button onclick='memoryGame()'>Start Game</button>";
     document.getElementById("interactive-section3").innerHTML = "Hangman Game!";
     document.getElementById("interactive-section3").innerHTML += "<br><button onclick='hangmanGame()'>Start Game</button>";
-    document.getElementById("interactive-section3").innerHTML = "Guess the Movie!";
-    document.getElementById("interactive-section3").innerHTML += "<br><button onclick='movieGame()'>Start Game</button>";
+    document.getElementById("interactive-section4").innerHTML = "Guess the Movie!";
+    document.getElementById("interactive-section4").innerHTML += "<br><button onclick='movieGame()'>Start Game</button>";
 }
 
 function memoryGame() {

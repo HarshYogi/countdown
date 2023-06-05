@@ -17,7 +17,7 @@ const clues = [
   },
   {
     question: "What is my favorite place we've visited together?",
-    answer: "garden of the 5 senses"
+    answer: "garden of five senses"
   },
   {
     question: "What is my dream travel destination with you?",

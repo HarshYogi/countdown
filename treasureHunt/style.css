@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+* {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+    font-family: Arial, sans-serif;
+        background-color: #eff8e2;
+        margin: 0;
+        padding: 0;
+  }
+
+  @keyframes lights {
+    0% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+    30% { 
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    40% { 
+      color: hsl(230, 100%, 95%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 90%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+    
+    100% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+  }
+  
+  body {
+    margin: 0;
+    font: 100% / 1.5 Raleway, sans-serif;
+    color: hsl(230, 100%, 95%);
+    background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+    height: 100vh;
+  }
+  
+  h2 {
+    margin: auto;
+    font-size: 4.5rem;
+    text-align: center;
+    font-weight: 300;
+    margin-top: 20px;
+    font-weight: bold;
+    animation: lights 5s 750ms linear infinite;
+  }
+
+  #input-form{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input[type="text"] {
+    display: block;
+    margin: 40px auto;
+    padding: 5px;
+    width: 44%;
+    height: 5%;
+    background-color: hsl(186 100% 69%);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 35px;
+    text-align: center;
+    color: white;
+    letter-spacing: 5px;
+    border: none;
+  }
+
+  :root {
+    --glow-color: hsl(186 100% 69%);
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  #clue-container{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 60px;
+    margin-top: 20px;
+  }
+
+  button{
+    font-size: 45px;
+    width: 27%;
+    border-radius: 54px;
+    font-weight: bold;
+    padding: 12px;
+    margin: 20px auto;
+    font-family: "Raleway", sans-serif;
+  }

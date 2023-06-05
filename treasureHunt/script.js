@@ -33,7 +33,7 @@ const clues = [
   },
   {
     question: "What is the name of the movie I've been watched recently?",
-    answer: "pirates of the carribean"
+    answer: "pirates of the caribbean"
   },
   {
     question: "What's my UPI Pin",

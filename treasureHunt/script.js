@@ -41,7 +41,7 @@ const clues = [
   },
   {
     question: "When was the first online movie date? (date space month space year)",
-    answer: "3 march 2021"
+    answer: "3 july 2021"
   },
 ];
 

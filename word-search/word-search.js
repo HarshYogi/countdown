@@ -31,84 +31,110 @@ const words = [
   ];
   
   let selectedCells = [];
-  let foundWords = [];
-  
-  function generateWordSearch() {
-    const wordSearch = document.getElementById('wordSearch');
-  
-    for (let i = 0; i < grid.length; i++) {
-      for (let j = 0; j < grid[i].length; j++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        cell.textContent = grid[i][j];
-        wordSearch.appendChild(cell);
-        cell.addEventListener('mousedown', handleCellMouseDown);
-        cell.addEventListener('mouseenter', handleCellMouseEnter);
-        cell.addEventListener('mouseup', handleCellMouseUp);
-      }
+let foundWords = [];
+
+function generateWordSearch() {
+  const wordSearch = document.getElementById('wordSearch');
+
+  for (let i = 0; i < grid.length; i++) {
+    for (let j = 0; j < grid[i].length; j++) {
+      const cell = document.createElement('div');
+      cell.classList.add('cell');
+      cell.textContent = grid[i][j];
+      wordSearch.appendChild(cell);
+      cell.addEventListener('mousedown', handleCellMouseDown);
+      cell.addEventListener('mouseenter', handleCellMouseEnter);
+      cell.addEventListener('mouseup', handleCellMouseUp);
+      cell.addEventListener('touchstart', handleCellTouchStart);
+      cell.addEventListener('touchmove', handleCellTouchMove);
+      cell.addEventListener('touchend', handleCellTouchEnd);
     }
   }
-  
-  function handleCellMouseDown(event) {
+}
+
+function handleCellMouseDown(event) {
+  const cell = event.target;
+  cell.classList.add('selected');
+  selectedCells.push(cell);
+}
+
+function handleCellMouseEnter(event) {
+  if (event.buttons === 1) {
     const cell = event.target;
     cell.classList.add('selected');
     selectedCells.push(cell);
   }
-  
-  function handleCellMouseEnter(event) {
-    if (event.buttons === 1) {
-      const cell = event.target;
-      cell.classList.add('selected');
-      selectedCells.push(cell);
+}
+
+function handleCellMouseUp() {
+  const word = getSelectedWord();
+  if (word) {
+    markSelectedWord(word);
+    checkGameCompletion();
+  }
+  clearSelectedCells();
+}
+
+function handleCellTouchStart(event) {
+  const cell = event.target;
+  cell.classList.add('selected');
+  selectedCells.push(cell);
+}
+
+function handleCellTouchMove(event) {
+  event.preventDefault();
+  const touch = event.changedTouches[0];
+  const cell = document.elementFromPoint(touch.clientX, touch.clientY);
+  if (cell && cell.classList.contains('cell') && !cell.classList.contains('selected')) {
+    cell.classList.add('selected');
+    selectedCells.push(cell);
+  }
+}
+
+function handleCellTouchEnd() {
+  const word = getSelectedWord();
+  if (word) {
+    markSelectedWord(word);
+    checkGameCompletion();
+  }
+  clearSelectedCells();
+}
+
+function getSelectedWord() {
+  const letters = selectedCells.map(cell => cell.textContent).join('');
+  const reversedLetters = letters.split('').reverse().join('');
+
+  for (const word of words) {
+    if (word === letters || word === reversedLetters) {
+      return word;
     }
   }
-  
-  function handleCellMouseUp() {
-    const word = getSelectedWord();
-    if (word) {
-      markSelectedWord(word);
-      checkGameCompletion();
-    }
-    clearSelectedCells();
+
+  return null;
+}
+
+function markSelectedWord(word) {
+  for (const cell of selectedCells) {
+    cell.classList.add('found');
   }
-  
-  function getSelectedWord() {
-    const letters = selectedCells.map(cell => cell.textContent).join('');
-    const reversedLetters = letters.split('').reverse().join('');
-  
-    for (const word of words) {
-      if (word === letters || word === reversedLetters) {
-        return word;
-      }
-    }
-  
-    return null;
+  foundWords.push(word);
+}
+
+function clearSelectedCells() {
+  for (const cell of selectedCells) {
+    cell.classList.remove('selected');
   }
-  
-  function markSelectedWord(word) {
-    for (const cell of selectedCells) {
-      cell.classList.add('found');
-    }
-    foundWords.push(word);
+  selectedCells = [];
+}
+
+function checkGameCompletion() {
+  if (foundWords.length === words.length) {
+    const wordSearch = document.getElementById('wordSearch');
+    const completionMsg = document.createElement('div');
+    completionMsg.classList.add('completion-msg');
+    completionMsg.textContent = 'Congratulations! You found all the words!';
+    wordSearch.appendChild(completionMsg);
   }
-  
-  function clearSelectedCells() {
-    for (const cell of selectedCells) {
-      cell.classList.remove('selected');
-    }
-    selectedCells = [];
-  }
-  
-  function checkGameCompletion() {
-    if (foundWords.length === words.length) {
-      const wordSearch = document.getElementById('wordSearch');
-      const completionMsg = document.createElement('div');
-      completionMsg.classList.add('completion-msg');
-      completionMsg.textContent = 'Congratulations! You found all the words!';
-      const win = document.getElementById('win')
-      win.appendChild(completionMsg);
-    }
-  }
-  
-  generateWordSearch();
-  
+}
+
+generateWordSearch();

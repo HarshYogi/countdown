@@ -39,6 +39,8 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section4").innerHTML += "<br><button onclick='movieGame()'>Start Game</button>";
     document.getElementById("interactive-section5").innerHTML = "Treasure Hunt!";
     document.getElementById("interactive-section5").innerHTML += "<br><button onclick='treasureHunt()'>Start Game</button>";
+    document.getElementById("interactive-section6").innerHTML = "Word Search Game!";
+    document.getElementById("interactive-section6").innerHTML += "<br><button onclick='wordSearch()'>Start Game</button>";
 }
 
 function memoryGame() {
@@ -64,6 +66,11 @@ function movieGame() {
 function treasureHunt() {
   clearInterval(countdownInterval);
   const newWindow = window.open("../treasureHunt/index.html", "_blank");
+}
+
+function wordSearch() {
+  clearInterval(countdownInterval);
+  const newWindow = window.open("../word-search/word-search.html", "_blank");
 }
 
 // Start the countdown

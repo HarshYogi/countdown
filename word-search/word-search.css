@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900");
+@import url("https://fonts.googleapis.com/css?family=Raleway");
+
+* {
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+    @keyframes lights {
+        0% {
+          color: hsl(230, 40%, 80%);
+          text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+        
+        30% { 
+          color: hsl(230, 80%, 90%);
+          text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+        
+        40% { 
+          color: hsl(230, 100%, 95%);
+          text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 90%, 0.5),
+            -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+            0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+        }
+        
+        70% {
+          color: hsl(230, 80%, 90%);
+          text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.5),
+            0 0 0.125em hsla(320, 100%, 60%, 0.5),
+            0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+            -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+        }
+        
+        100% {
+          color: hsl(230, 40%, 80%);
+          text-shadow:
+            0 0 1em hsla(320, 100%, 50%, 0.2),
+            0 0 0.125em hsla(320, 100%, 60%, 0.3),
+            1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+            -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+        }
+        
+      }
+      
+      body {
+        margin: 0;
+        font: 100% / 1.5 Raleway, sans-serif;
+        color: hsl(230, 100%, 95%);
+        background: linear-gradient(135deg, hsl(230, 40%, 12%), hsl(230, 20%, 7%));
+        height: 100vh;
+      }
+      
+      h2 {
+        margin: auto;
+        font-size: 4.5rem;
+        text-align: center;
+        font-weight: 300;
+        margin-top: 20px;
+        font-weight: bold;
+        animation: lights 5s 750ms linear infinite;
+        margin-bottom: 10px;
+      }
+
+#wordSearch {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-gap: 5px;
+    margin-bottom: 20px;
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .words{
+    text-align: center;
+    width: 88%;
+    margin: 0 71px;
+    margin-bottom: 35px;
+    font-size: 10px;
+  }
+  .color{
+    color: #32dec8;
+  }
+  
+  .cell {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .found {
+    background-color: #32dec8c9;
+  }
+  
+  .selected {
+    background-color: lightblue;
+  }
+
+  .completion-msg {
+    margin-top: 15px;
+    font-size: 15px;
+    color: white;
+    text-align: center;
+  }
+  

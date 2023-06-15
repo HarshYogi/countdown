@@ -43,6 +43,8 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section6").innerHTML += "<br><button onclick='wordSearch()'>Start Game</button>";
     document.getElementById("interactive-section7").innerHTML = "Interactive Story Game!";
     document.getElementById("interactive-section7").innerHTML += "<br><button onclick='story()'>Start Game</button>";
+    document.getElementById("interactive-section8").innerHTML = "Word Scramble Game!";
+    document.getElementById("interactive-section8").innerHTML += "<br><button onclick='wordScramble()'>Start Game</button>";
 }
 
 function memoryGame() {
@@ -78,6 +80,11 @@ function wordSearch() {
 function story() {
   clearInterval(countdownInterval);
   const newWindow = window.open("../story/story.html", "_blank");
+}
+
+function wordScramble() {
+  clearInterval(countdownInterval);
+  const newWindow = window.open("../word-scramble/word-scramble.html", "_blank");
 }
 
 // Start the countdown

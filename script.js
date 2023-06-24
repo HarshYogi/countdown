@@ -45,7 +45,7 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section7").innerHTML += "<br><button onclick='story()'>Start Game</button>";
     document.getElementById("interactive-section8").innerHTML = "Word Scramble Game!";
     document.getElementById("interactive-section8").innerHTML += "<br><button onclick='wordScramble()'>Start Game</button>";
-    document.getElementById("interactive-section9").innerHTML = "Love Story Timeline Game!";
+    document.getElementById("interactive-section9").innerHTML = "Our Story Timeline Game!";
     document.getElementById("interactive-section9").innerHTML += "<br><button onclick='loveStory()'>Start Game</button>";
 }
 

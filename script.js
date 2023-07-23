@@ -47,6 +47,8 @@ function displayInteractiveElements(days) {
     document.getElementById("interactive-section8").innerHTML += "<br><button onclick='wordScramble()'>Start Game</button>";
     document.getElementById("interactive-section9").innerHTML = "Our Story Timeline Game!";
     document.getElementById("interactive-section9").innerHTML += "<br><button onclick='loveStory()'>Start Game</button>";
+    document.getElementById("interactive-section10").innerHTML = "Private Messages!";
+    document.getElementById("interactive-section10").innerHTML += "<br><button onclick='privateMessage()'>Start Game</button>";
 }
 
 function memoryGame() {
@@ -92,6 +94,11 @@ function wordScramble() {
 function loveStory() {
   clearInterval(countdownInterval);
   const newWindow = window.open("../love-story/love-story.html", "_blank");
+}
+
+function privateMessage(){
+  clearInterval(countdownInterval);
+  const newWindow = window.open("../private-message/private-message.html", "_blank");;
 }
 
 // Start the countdown

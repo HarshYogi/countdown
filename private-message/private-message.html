@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Love Letter Cipher</title>
+    <link rel="stylesheet" href="private-message.css">
+</head>
+
+<body>
+    <h2>Private Messages</h2>
+    <p>From here we can code or decode our message in a secret manner.</p>
+    <div id="cipher-form">
+        <div class="first box">
+            <div id="hint1">Enter your message:</div>
+            <div class="textbox">
+                <textarea id="message" placeholder="Write your love letter here..."></textarea>
+            </div>
+            <button class='glowing-btn' id="guessButton" onclick="encryptMessage()"><span class='glowing-txt'>Encrypt
+                    Message</span></button>
+            <div id="ciphered-message"></div>
+        </div>
+        <div class="second box">
+            <div id="hint2">Enter the encrypted message:</div>
+            <div class="textbox">
+                <textarea id="encrypted" placeholder="Paste the encrypted message here..."></textarea>
+            </div>
+            <button class='glowing-btn' id="guessButton" onclick="decryptMessage()"><span class='glowing-txt'>Decrypt
+                    Message</span></button>
+            <div id="decrypted-message"></div>
+        </div>
+    </div>
+    <script src="private-message.js"></script>
+</body>
+
+</html>
